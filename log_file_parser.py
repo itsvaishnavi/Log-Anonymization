@@ -11,7 +11,7 @@ class LogAnonymization:
 		line = f.readlines() #list of all lines in the 'filename'
 
 		# Creating the output filename with suffix '_out.csv'
-		out_file = filename.split(filename[filename.rfind('.')])[0] + "_out.csv"
+		out_file = filename.split(filename[filename.rfind('.')])[0] + "_out.txt"
 
 		for l in line:
 			l = l.rstrip()
@@ -56,8 +56,11 @@ class LogAnonymization:
 			return '255.255.255.255','RN9999'
 
 	def write_to_file(self,out_file,an_ip,country_code,log_data):
-		file1 = open(out_file,"a")
-		file1.write(an_ip+" "+country_code+log_data+"\n")
+		file1 = open(out_file,"a+")
+		d = " ".join(log_data)
+		out_data = an_ip+" "+country_code+d+"\n"
+		print(an_ip+" "+country_code+d+"\n")
+		file1.write(out_data)
 		file1.close()
 
 # Write unit test cases
