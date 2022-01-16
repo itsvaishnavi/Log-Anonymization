@@ -6,7 +6,7 @@ import json
 
 class LogAnonymization:	
 	def read_log_file(self,filename):
-		out_file = filename.split(filename[filename.rfind('.')])[0] + "_out.csv"
+		out_file = filename.split(filename[filename.rfind('.')])[0] + "_out.log"
 		f = open(filename,'r')
 		line = f.readlines()
 
